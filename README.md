@@ -139,7 +139,6 @@ Our experimental workflow is designed to be configurable and reproducible.
 #### 1\. Reproduce Our Results for DeepSeek-R1-distilled-Qwen-7B/1.5B on AIME Benchmark
 
 To reproduce main results from the paper, use the provided bash scripts in the `scripts/` directory.
-
 These scripts automatically loop through all combinations of `models` ("1.5B", "7B") and `datasets` ("aime24", "aime25") and pass the correct, paper-matched hyperparameters for each run.
 
 ```bash
@@ -155,7 +154,6 @@ The hyperparameters within these scripts are hard-coded to match our paper's set
 This file contains all fundamental configuration settings, such as model names, dataset paths, output directories, and default parameters tailored for each dataset. You can edit this file to change the models, datasets, or prompts. 
 
 <!-- to set your own paths and related parameters. -->
-
 <!-- The core logic is in `decoding_tree_sketching/run_experiment.py`, which reads model/dataset configurations from `configs/config.yaml` and accepts hyperparameters from the command line. -->
 
 
@@ -212,7 +210,7 @@ This codebase is configured to run the AIME24/AIME25 datasets with the DeepSeek-
       * The evaluation logic (e.g., `extract_answer_qwq`) is specific to the `\boxed{}` format. You will need to update the evaluation loop to use the correct answer extraction logic for your new dataset.
 
 
-## 🔍 About
+## 🔍 How does DTS Work?
 
 This project introduces **DTS (Decoding Tree Sketching)**, a **training-free, model-agnostic decoding framework** designed to mitigate **overthinking** in Large Reasoning Models (LRMs).
 
