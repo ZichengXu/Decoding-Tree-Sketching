@@ -224,7 +224,7 @@ The design of DTS is driven by two critical, empirical findings regarding LRM be
 
 The figure below illustrates both this anti-correlation (a) and the resulting DTS framework (b), which selectively branches at high-entropy tokens to find the shortest, most accurate path：
 <p align="center">
-  <img src="assets/fig1.png" width="800">
+  <img src="assets/fig1.png" width="850">
 </p>
 
 
