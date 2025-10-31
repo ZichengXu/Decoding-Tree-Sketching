@@ -2,11 +2,9 @@ import json
 import os
 import re
 
-
 def read_jsonl(path: str):
     with open(path) as fh:
         return [json.loads(line) for line in fh.readlines() if line]
-
 
 def is_float(string):
     try:
@@ -14,7 +12,7 @@ def is_float(string):
         return True
     except ValueError:
         return False
-    
+        
 def get_examples(split):
     path = os.path.join("data/", f"{split}.jsonl")
     examples = read_jsonl(path)
@@ -25,7 +23,6 @@ def get_examples(split):
 
     print(f"{len(examples)} {split} examples")
     return examples
-
 
 ANS_RE_gt = re.compile(r"#### (\-?[0-9\.\,]+)")
 ANS_RE_qwq = re.compile(r"boxed\{(.*?)\}")
@@ -45,7 +42,7 @@ def extract_answer_qwq(completion):
     match = ANS_RE_qwq.search(completion)
     if match:
         match_str = match.group(1).strip()
-        # 先移除所有可能的 % 和 逗号
+        # Remove all possible %, commas, backslashes, and dollar signs
         match_str = match_str.replace(",", "").replace("%", "").replace("\\", "").replace("$", "")
         return match_str
     else:
@@ -53,35 +50,36 @@ def extract_answer_qwq(completion):
 
 def extract_answer_llm(text):
     """
-    从文本中提取最后一个包含数字的字符串，并只保留数字、小数点和正负号
+    Extracts the last number-containing string from the text and cleans it 
+    to only include digits, decimal points, and a leading sign.
     
     Args:
-        text (str): 输入文本
+        text (str): Input text
         
     Returns:
-        str: 处理后的数字字符串，如果没找到则返回 "INVALID_ANS"
+        str: Cleaned number string, or "INVALID_ANS" if not found.
     """
-    # 匹配包含数字的字符串
+    # Match strings containing digits
     number_strings = re.findall(r'\S*\d+\S*', text)
     
     if not number_strings:
         return "INVALID_ANS"
     
-    # 获取最后一个匹配的字符串
+    # Get the last matched string
     last_number_string = number_strings[-1]
     
-    # 只保留数字、小数点和正负号
+    # Keep only digits, decimal points, and signs
     cleaned_number = ''.join(char for char in last_number_string 
                            if char.isdigit() or char in '.-')
     
-    # 处理可能出现的多个小数点或正负号
-    # 只保留第一个小数点
+    # Handle potential multiple decimal points or signs
+    # Only keep the first decimal point
     if cleaned_number.count('.') > 1:
         first_dot_index = cleaned_number.index('.')
         cleaned_number = cleaned_number[:first_dot_index + 1] + \
                         cleaned_number[first_dot_index + 1:].replace('.', '')
     
-    # 只保留最前面的正负号
+    # Only keep the leading sign
     if cleaned_number.startswith('-'):
         cleaned_number = '-' + cleaned_number[1:].replace('-', '')
     else:

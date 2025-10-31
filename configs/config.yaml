@@ -1,0 +1,34 @@
+general:
+  # WARNING: Storing tokens in config is a security risk.
+  # Better practice is to use environment variables (e.g., export HF_TOKEN='your_token')
+  # and use os.environ.get("HF_TOKEN") in Python.
+  hf_access_token: "your_hf_access_token_here"
+  cache_dir: "your_cache_dir_here" 
+
+output:
+  # Save results outside the project source code
+  base_dir: "./results/json"
+
+# --- Model Definitions ---
+models:
+  "1.5B":
+    model_name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
+  "7B":
+    model_name: "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B"
+  # (You can add more models here)
+
+# --- Dataset Definitions ---
+datasets:
+  "aime24":
+    dataset_name: "Maxwell-Jia/AIME_2024"
+    split: "train"
+    # Model-specific prompt templates are also defined here
+    prompt_key: "Problem"    
+    answer_key: "Answer"     
+    prompt_tail: " Please reason step by step, and put your final answer within \\boxed{}."
+  "aime25":
+    dataset_name: "math-ai/AIME25" # (Please confirm the name on Hugging Face)
+    split: "test"
+    prompt_key: "problem"    
+    answer_key: "answer"   
+    prompt_tail: " Please reason step by step, and put your final answer within \\boxed{}."

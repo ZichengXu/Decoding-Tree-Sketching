@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dts"
+version = "0.1.0"
+description = "a model-agnostic decoding framework for efficient reasoning"
+readme = "README.md"
+requires-python = ">=3.10"
+
+license = 
+license-files = 
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "torch==2.6.0",
+    "transformers==4.54.0",
+    "numpy",
+    "datasets",
+    "scikit-learn",
+    "tqdm",
+    "tiktoken",
+    "accelerate",
+    "pyyaml",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["decoding_tree_sketching*"]
