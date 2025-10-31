@@ -120,13 +120,19 @@ if __name__ == "__main__":
 Through DTS, we successfully achieve substantial improvements in reasoning performance and efficiency over standard inference on two key mathematical reasoning benchmarks. Our framework consistently improves **accuracy** by up to **8.0%**, reduces **average reasoning length** by over **20%** and reduces **repetition frequency** by up to **80%**. These results demonstrate that DTS effectively mitigates overthinking and generates more concise, accurate, and stable reasoning trajectories that balance performance and efficiency without any training involved. The results are presented below:
 > **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
 
-| Model                             | Method             |        AIME2024       |                        |                     |        AIME2025       |                        |                     |        Average        |                        |                     |
+<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="400">
+<img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="400">
+<img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="400">
+<img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="400">
+
+
+<!-- | Model                             | Method             |        AIME2024       |                        |                     |        AIME2025       |                        |                     |        Average        |                        |                     |
 | :-------------------------------- | :----------------- | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: |
 |                                   |                    |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |
 | **DeepSeek-R1-Distill-Qwen-7B**   | Standard Inference |         52.67         |          13902         |         6.7         |         36.00         |          15053         |         12.7        |         44.34         |          14478         |         9.7         |
 |                                   | DTS            | **60.67**<br>(+8.00%) |  **9865**<br>(-29.03%) | **1.3**<br>(↓80.6%) | **43.33**<br>(+7.33%) | **12440**<br>(-17.35%) | **2.7**<br>(↓78.7%) | **52.00**<br>(+7.66%) | **11153**<br>(-22.96%) | **2.0**<br>(↓79.4%) |
 | **DeepSeek-R1-Distill-Qwen-1.5B** | Standard Inference |         26.67         |          16596         |         15.3        |         24.67         |          17809         |         26.7        |         25.67         |          17203         |         21.0        |
-|                                   | DTS            | **32.67**<br>(+6.00%) | **12462**<br>(-24.91%) | **4.7**<br>(↓69.3%) | **26.67**<br>(+2.00%) | **13762**<br>(-22.72%) | **6.0**<br>(↓77.5%) | **29.67**<br>(+4.00%) | **13112**<br>(-23.72%) | **5.4**<br>(↓74.3%) |
+|                                   | DTS            | **32.67**<br>(+6.00%) | **12462**<br>(-24.91%) | **4.7**<br>(↓69.3%) | **26.67**<br>(+2.00%) | **13762**<br>(-22.72%) | **6.0**<br>(↓77.5%) | **29.67**<br>(+4.00%) | **13112**<br>(-23.72%) | **5.4**<br>(↓74.3%) | -->
 
 ## 🧪 Running Experiments
 
