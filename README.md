@@ -19,44 +19,28 @@
 
 
 
-## 🎯 About
+## 💡 About
 
 Decision Tree Sketching (DTS) is a **Training-free** method designed to enhance the reasoning capability of Large Reasoning Models (LRMs). On the AIME benchmark, DTS has substantial improvements:
 
 - Increases accuracy by up to **8.0%**
-- Reduces repetition frequency by up to 80%
-- Shortens average reasoning length by over 20%
+- Reduces repetition frequency by up to **20%**
+- Shortens average reasoning length by over **20%**
 
-<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="205"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="210">
+<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="208"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="210">
 
 > **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
 
 
-
-
-
-## 🔍 About
-
-This project introduces **DTS (Decoding Tree Sketching)**, a **training-free, model-agnostic decoding framework** designed to mitigate **overthinking** in Large Reasoning Models (LRMs).
-
-DTS selectively branches at high-uncertainty tokens and applies early stopping to identify the *"most information-dense and concise reasoning path"* — balancing efficiency and correctness.
-
-The design of DTS is driven by two critical, empirical findings regarding LRM behavior:
-
-1.  The variance in generated output is predominantly determined by **high-uncertainty (high-entropy) tokens**.
-2.  There is a clear **anti-correlation** between reasoning length and accuracy.
-
-The figure below illustrates both this anti-correlation (a) and the resulting DTS framework (b), which selectively branches at high-entropy tokens to find the shortest, most accurate path：
-<p align="center">
-  <img src="assets/fig1.png" width="600">
-</p>
-
-## 🚀 How to use DTS
-DTS is designed to be a "plug-and-play" module that works with standard Hugging Face models. This section provides a guide to setting up your environment and running DTS decoding.
+## 🚀 Clone and use DTS
+DTS is a **plug-and-play** module designed for reasoning models on Hugging Face (not compatible with non-reasoning models).
+Simply clone this repository to instantly enhance your model’s reasoning capabilities!
 
 #### 1\. Environment Setup
 
 ```bash
+git clone https://github.com/ZichengXu/Decoding-Tree-Sketching.git
+cd Decoding-Tree-Sketching
 conda create -n dts python=3.10
 conda activate dts
 pip install -e .
@@ -135,12 +119,10 @@ if __name__ == "__main__":
 ```
 
 
-## 🎯 Paper Results
+<!-- ## 🎯 Paper Results
 
 Through DTS, we successfully achieve substantial improvements in reasoning performance and efficiency over standard inference on two key mathematical reasoning benchmarks. Our framework consistently improves **accuracy** by up to **8.0%**, reduces **average reasoning length** by over **20%** and reduces **repetition frequency** by up to **80%**. These results demonstrate that DTS effectively mitigates overthinking and generates more concise, accurate, and stable reasoning trajectories that balance performance and efficiency without any training involved. The results are presented below:
-> **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
-
-
+> **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration. -->
 
 <!-- | Model                             | Method             |        AIME2024       |                        |                     |        AIME2025       |                        |                     |        Average        |                        |                     |
 | :-------------------------------- | :----------------- | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: |
@@ -152,13 +134,9 @@ Through DTS, we successfully achieve substantial improvements in reasoning perfo
 
 ## 🧪 Running Experiments
 
-Our experimental workflow is designed to be configurable and reproducible. The core logic is in `decoding_tree_sketching/run_experiment.py`, which reads model/dataset configurations from `configs/config.yaml` and accepts hyperparameters from the command line.
+Our experimental workflow is designed to be configurable and reproducible. 
 
-#### 1\. Configuration File (`configs/config.yaml`)
-
-This file contains all fundamental configuration settings, such as model names, dataset paths, output directories, and default parameters tailored for each dataset. Before running any experiments, you must edit this file to set your own paths and related parameters.
-
-#### 2\. Run Paper Experiments
+#### 1\. Reproduce Our Results for DeepSeek-R1-distilled-Qwen-7B/1.5B on AIME Benchmark
 
 To reproduce main results from the paper, use the provided bash scripts in the `scripts/` directory.
 
@@ -169,6 +147,17 @@ bash scripts/run_all_dts.sh # DTS
 bash scripts/run_all_std.sh # baseline
 ```
 The hyperparameters within these scripts are hard-coded to match our paper's settings.
+
+> **Note:** Our experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
+
+#### 2\. Configuration File (`configs/config.yaml`)
+
+This file contains all fundamental configuration settings, such as model names, dataset paths, output directories, and default parameters tailored for each dataset. You can edit this file to change the models, datasets, or prompts. 
+
+<!-- to set your own paths and related parameters. -->
+
+<!-- The core logic is in `decoding_tree_sketching/run_experiment.py`, which reads model/dataset configurations from `configs/config.yaml` and accepts hyperparameters from the command line. -->
+
 
 #### 3\. Running a Experiment (Manual)
 
@@ -221,6 +210,24 @@ This codebase is configured to run the AIME24/AIME25 datasets with the DeepSeek-
 2.  **`decoding_tree_sketching/run_experiment.py`**:
 
       * The evaluation logic (e.g., `extract_answer_qwq`) is specific to the `\boxed{}` format. You will need to update the evaluation loop to use the correct answer extraction logic for your new dataset.
+
+
+## 🔍 About
+
+This project introduces **DTS (Decoding Tree Sketching)**, a **training-free, model-agnostic decoding framework** designed to mitigate **overthinking** in Large Reasoning Models (LRMs).
+
+DTS selectively branches at high-uncertainty tokens and applies early stopping to identify the *"most information-dense and concise reasoning path"* — balancing efficiency and correctness.
+
+The design of DTS is driven by two critical, empirical findings regarding LRM behavior:
+
+1.  The variance in generated output is predominantly determined by **high-uncertainty (high-entropy) tokens**.
+2.  There is a clear **anti-correlation** between reasoning length and accuracy.
+
+The figure below illustrates both this anti-correlation (a) and the resulting DTS framework (b), which selectively branches at high-entropy tokens to find the shortest, most accurate path：
+<p align="center">
+  <img src="assets/fig1.png" width="600">
+</p>
+
 
 ## 💡 Citation
 
