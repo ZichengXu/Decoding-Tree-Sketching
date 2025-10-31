@@ -21,14 +21,20 @@
 
 ## 🎯 About
 
-Decision Tree Sketching (DTS) is for Large Reasoning Models
+Decision Tree Sketching (DTS) is a **Training-free** method designed to enhance the reasoning capability of Large Reasoning Models (LRMs). On the AIME benchmark, DTS has substantial improvements:
 
-- DTS can run 
-- improves **accuracy** by up to **8.0%**
-- reduces **repetition frequency** by up to **80%**
-- reduces **average reasoning length** by over **20%**
+- Increases accuracy by up to **8.0%**
+- Reduces repetition frequency by up to 80%
+- Shortens average reasoning length by over 20%
 
-<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="220"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="220">
+Decision Tree Sketching (DTS) is a **Training-free** method to improve the reasoning capability of Large Reasoning Models. On the AIME datasets, it 
+
+
+- DTS improves **accuracy** by up to **8.0%**
+- DTS reduces **repetition frequency** by up to **80%**
+- DTS reduces **average reasoning length** by over **20%**
+
+<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="210"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="210">
 
 > **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
 
