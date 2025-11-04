@@ -14,7 +14,8 @@
 </p>
 
 ## 🎉 Updates
-- **[2025/10/29]** Released our Paper on arXiv. See [here](https://arxiv.org/abs/).
+- **[2025/10/29]** 📣 Released DTS on Colab! See [here](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb).
+- **[2025/10/29]** 📣 Released our Paper on arXiv. See [here](https://arxiv.org/abs/).
 - **[2025/10/29]** ✨✨Full codebase of DTS released.
 
 
@@ -30,6 +31,9 @@ Decision Tree Sketching (DTS) is a **Training-free** method designed to enhance 
 <img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="208"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="210">
 
 > **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
+
+## 🏃‍♂️🏃🏻‍♂️🏃🏾‍♂️ Run DTS on Colab 
+Run DTS on DeepSeek-R1-Distill-Qwen-1.5B with Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb)
 
 
 ## 🚀 Clone and Use DTS
