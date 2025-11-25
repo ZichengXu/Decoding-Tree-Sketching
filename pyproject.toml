@@ -9,11 +9,10 @@ description = "a model-agnostic decoding framework for efficient reasoning"
 readme = "README.md"
 requires-python = ">=3.10"
 
-license = 
-license-files = 
-
+license = { file = "LICENSE" }
 classifiers = [
     "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
     "torch==2.6.0",
@@ -26,6 +25,9 @@ dependencies = [
     "accelerate",
     "pyyaml",
 ]
+
+[tool.setuptools]
+license-files = ["LICENSE"]
 
 [tool.setuptools.packages.find]
 where = ["."]
