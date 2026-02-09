@@ -1,44 +1,51 @@
-# **Decoding Tree Sketching (DTS)**
-[![Paper](https://img.shields.io/badge/Paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2511.00640) [![Github](https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white)]() [![Colab](https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb)
-[![Hugging Face](https://img.shields.io/badge/HuggingFace-FEDA1A?style=for-the-badge&logo=huggingface&logoColor=000000)]() [![X](https://img.shields.io/badge/-000000?style=for-the-badge&logo=x&logoColor=white)]()
-
-> **Official Implementation of Paper**
-> **[DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching](https://arxiv.org/abs/2511.00640)**
-
-<p>
-  <a href="#-updates" style="text-decoration: none; font-weight: bold;">🎉 Updates</a> •
-  <a href="#-about" style="text-decoration: none; font-weight: bold;">💡 About</a> •
-  <a href="#-clone-and-use-dts" style="text-decoration: none; font-weight: bold;">🔍 Clone and Use DTS</a> •
-  <a href="#-running-experiments" style="text-decoration: none; font-weight: bold;">🧪 Running Experiments</a> •
-  <a href="#-how-does-dts-work" style="text-decoration: none; font-weight: bold;">🚀 How does DTS Work</a> •
-  <a href="#-citation" style="text-decoration: none; font-weight: bold;">💬 Citation</a>
+<div align="center">
+<h1 align="center">
+  <img src="./assets/dts_logo-Photoroom.png" height="80" style="vertical-align: middle;">
+  Decoding Tree Sketching (DTS)
+</h1>
+<h3><em>Enhancing Large Reasoning Models via Structured Exploration</em></h3>
+<p align="center" style="margin-bottom: 0px;">
+    <a href="https://arxiv.org/abs/2511.00640"><img src="https://img.shields.io/badge/Paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white" height="24"></a><a href="#"><img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white"height="24"></a><a href="https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb"><img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white"height="24"></a><a href="#"><img src="https://img.shields.io/badge/HuggingFace-FEDA1A?style=for-the-badge&logo=huggingface&logoColor=000000"height="24"></a><a href="#"><img src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=x&logoColor=white" height="24"></a>
 </p>
+<p align="center" style="font-size: 10px;">
+    <a href="#-updates" style="text-decoration: none; font-weight: bold;">🎉 Updates</a> •
+    <a href="#-about" style="text-decoration: none; font-weight: bold;">💡 About</a> •
+    <a href="#-clone-and-use-dts" style="text-decoration: none; font-weight: bold;">🔍 Clone and Use DTS</a>
+    <a href="#-experiments" style="text-decoration: none; font-weight: bold;">🧪 Experiments</a> •
+    <a href="#-how-dts-works" style="text-decoration: none; font-weight: bold;">🚀 How DTS Works</a> •
+    <a href="#-citation" style="text-decoration: none; font-weight: bold;">💬 Citation</a>
+</p>
+<img src="./assets/tree.gif" alt="DTS Workflow Demonstration" width="60%">
+</div>
 
 ## 🎉 Updates
+- **[02/09/2026]** **Codebase Update:** We have updated the codebase to match the latest version.
+- **[02/04/2026]** **Paper Update:** We have uploaded the latest version of our paper to arXiv. Check it out [here](https://arxiv.org/abs/2511.00640).
 - **[11/03/2025]** 📣 Released DTS on Colab! [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb)
 - **[11/01/2025]** 📣 Released our Paper on arXiv. See [here](https://arxiv.org/abs/2511.00640).
-- **[10/29/2025]** ✨✨Full codebase of DTS released.
-
+- **[10/29/2025]** ✨✨ Full codebase of DTS released.
 
 
 ## 💡 About
 
-Decision Tree Sketching (DTS) is a **Training-free** method designed to enhance the reasoning capability of Large Reasoning Models (LRMs). On the AIME benchmark, DTS has substantial improvements:
+**Decoding Tree Sketching (DTS)** is a **Training-free** decoding framework designed to unlock the full potential of Large Reasoning Models (LRMs) through structured exploration and reliable trajectory selection. By sketching a dynamic reasoning tree and leveraging the **length-accuracy anti-correlation**, DTS delivers:
 
-- Increases accuracy by up to **8.0%**
-- Reduces repetition frequency by up to **20%**
-- Shortens average reasoning length by over **20%**
+- **Significant Accuracy Gains:** Achieves an average accuracy improvement of **14%** across four datasets; Consistently surpassing SOTA parallel thinking baselines, with peak improvements of up to **18.67%** on AIME24.
+- **Superior Inference Scaling:** Enables smaller models to outperform flagship models **10x** their size (e.g.,  DeepSeek-Distill-Qwen-7B with DTS surpasses DeepSeek-Distill-Llama-70B) at similar compute budgets.
+- **Mitigated Repetition:** Effectively prevents reasoning loops, reducing repetitive generation by **8%** on average.
 
-<img src="./result/fig/deepseek-qwen3-7B-acc.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-7B-repetition.png" alt="Alt text" width="200"><img src="./result/fig/deepseek-qwen3-1.5B-acc.png" alt="Alt text" width="208"><img src="./result/fig/deepseek-qwen3-1.5B-repetition.png" alt="Alt text" width="210">
-
-> **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration.
+<div align="center">
+  <img src="./assets/radar.png" alt="Alt text" width="40%">
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img src="./assets/scale.png" alt="Alt text" width="40%">
+</div>
 
 ## 🏃‍♂️🏃🏻‍♂️🏃🏾‍♂️ Run DTS on Colab 
 Run DTS on DeepSeek-R1-Distill-Qwen-1.5B with Colab [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb)
 
 
 ## 🚀 Clone and Use DTS
-DTS is a **plug-and-play** module designed for reasoning models on Hugging Face (not compatible with non-reasoning models).
+DTS is a **plug-and-play** module designed for reasoning models on Hugging Face.
 Simply clone this repository to instantly enhance your model’s reasoning capabilities!
 
 #### 1\. Environment Setup
@@ -52,7 +59,7 @@ pip install -e .
 ```
 
 #### 2\. Run Example
-This example shows how to load a model and run inference with DTS decoding.
+This example shows how to load a model and run inference with DTS-Greedy decoding.
 
 ```python
 import torch
@@ -69,6 +76,7 @@ DECODE_CONFIG = {
     "max_active_hyps": 12,
     "max_new_tokens": 5000,
     "temperature": 0.6,
+    "num_traces": 1,
 }
 tokenizer = AutoTokenizer.from_pretrained(
         model_name,
@@ -125,6 +133,7 @@ dts_out = kvegdt.generate(
         max_active_hyps=DECODE_CONFIG["max_active_hyps"],
         max_new_tokens=DECODE_CONFIG["max_new_tokens"],
         temperature=DECODE_CONFIG["temperature"],
+        num_traces=DECODE_CONFIG["num_traces"],
     )
 
 print(f"\n*** GENERATION STATS ***\n{dts_out['stats']}")
@@ -133,27 +142,38 @@ print(f"Groundtruth = {groundtruth}, DTS output = {dts_ans}")
 ```
 
 
-<!-- ## 🎯 Paper Results
+## 🎯 Paper Results
 
-Through DTS, we successfully achieve substantial improvements in reasoning performance and efficiency over standard inference on two key mathematical reasoning benchmarks. Our framework consistently improves **accuracy** by up to **8.0%**, reduces **average reasoning length** by over **20%** and reduces **repetition frequency** by up to **80%**. These results demonstrate that DTS effectively mitigates overthinking and generates more concise, accurate, and stable reasoning trajectories that balance performance and efficiency without any training involved. The results are presented below:
-> **Note:** All experiments were conducted on NVIDIA H200 GPUs. Results may vary slightly depending on your specific hardware configuration. -->
+DTS consistently outperforms baselines—including multi-trajectory methods—by utilizing selective branching and early termination to steer decoding toward optimal solutions. As a training-free framework, it proves model-agnostic across various LRM families and demonstrates strong task generalization, extending robust accuracy gains beyond mathematics to diverse domains like science and logic. 
 
-<!-- | Model                             | Method             |        AIME2024       |                        |                     |        AIME2025       |                        |                     |        Average        |                        |                     |
-| :-------------------------------- | :----------------- | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: | :-------------------: | :--------------------: | :-----------------: |
-|                                   |                    |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |      **Acc (%)**      |         **Len**        |     **Rep (%)**     |
-| **DeepSeek-R1-Distill-Qwen-7B**   | Standard Inference |         52.67         |          13902         |         6.7         |         36.00         |          15053         |         12.7        |         44.34         |          14478         |         9.7         |
-|                                   | DTS            | **60.67**<br>(+8.00%) |  **9865**<br>(-29.03%) | **1.3**<br>(↓80.6%) | **43.33**<br>(+7.33%) | **12440**<br>(-17.35%) | **2.7**<br>(↓78.7%) | **52.00**<br>(+7.66%) | **11153**<br>(-22.96%) | **2.0**<br>(↓79.4%) |
-| **DeepSeek-R1-Distill-Qwen-1.5B** | Standard Inference |         26.67         |          16596         |         15.3        |         24.67         |          17809         |         26.7        |         25.67         |          17203         |         21.0        |
-|                                   | DTS            | **32.67**<br>(+6.00%) | **12462**<br>(-24.91%) | **4.7**<br>(↓69.3%) | **26.67**<br>(+2.00%) | **13762**<br>(-22.72%) | **6.0**<br>(↓77.5%) | **29.67**<br>(+4.00%) | **13112**<br>(-23.72%) | **5.4**<br>(↓74.3%) | -->
+Accuracy (%) and Improvement (↑) of **DTS** compared to baselines on AIME24, AIME25, GPQA-D, and LiveBench datasets:
 
-## 🧪 Running Experiments
+| Model | Method | AIME24 (Imp.) | AIME25 (Imp.) | GPQA-D (Imp.) | LiveBench (Imp.) | Average (Imp.) |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: |
+| **DS-Distill-Qwen-1.5B** | Standard Inference | 26.67 (0.00) | 24.67 (0.00) | 32.02 (0.00) | 6.00 (0.00) | 22.34 (0.00) |
+| | DeepConf-low | 46.00 (+19.33) | 34.00 (+9.33) | 38.89 (+6.87) | 9.30 (+3.30) | 32.05 (+9.71) |
+| | **DTS-Stable** | **64.67 (+38.00)** | **39.33 (+14.66)** | **41.11 (+9.09)** | **16.70 (+10.70)** | **40.45 (+18.11)** |
+| **DS-Distill-Qwen-7B** | Standard Inference | 52.67 (0.00) | 36.00 (0.00) | 49.29 (0.00) | 27.20 (0.00) | 41.29 (0.00) |
+| | DeepConf-low | 70.67 (+18.00) | 52.67 (+16.67) | 52.32 (+3.03) | 33.30 (+6.10) | 52.24 (+10.95) |
+| | **DTS-Stable** | **78.67 (+26.00)** | **56.67 (+20.67)** | **57.78 (+8.49)** | **40.70 (+13.50)** | **58.45 (+17.16)** |
+| **Qwen3-0.6B** | Standard Inference | 11.33 (0.00) | 14.00 (0.00) | 24.75 (0.00) | 24.70 (0.00) | 18.70 (0.00) |
+| | DeepConf-low | 13.33 (+2.00) | 24.00 (+10.00) | 25.96 (+1.21) | 32.00 (+7.30) | 23.82 (+5.13) |
+| | **DTS-Stable** | **18.67 (+7.34)** | **29.33 (+15.33)** | **26.57 (+1.82)** | **34.70 (+10.00)** | **27.32 (+8.62)** |
+| **Phi4-mini-reasoning-4B** | Standard Inference | 49.33 (0.00) | 36.00 (0.00) | 50.20 (0.00) | 42.40 (0.00) | 44.48 (0.00) |
+| | DeepConf-low | 62.67 (+13.34) | 38.00 (+2.00) | 52.83 (+2.63) | 51.30 (+8.90) | 51.20 (+6.72) |
+| | **DTS-Stable** | **71.33 (+22.00)** | **52.00 (+16.00)** | **53.03 (+2.83)** | **56.00 (+13.60)** | **58.09 (+13.61)** |
+
+
+> **Note:** This table presents a selected subset of our experimental results. For the full comparison, please refer to Table 1 in our [Paper](https://arxiv.org/abs/2511.00640). **Bold** indicates the best performance.
+
+## 🧪 Experiments
 
 Our experimental workflow is designed to be configurable and reproducible. 
 
-#### 1\. Reproduce Our Results for DeepSeek-R1-distilled-Qwen-7B/1.5B on AIME Benchmark
+#### 1\. Reproduce Our Results
 
 To reproduce main results from the paper, use the provided bash scripts in the `scripts/` directory.
-These scripts automatically loop through all combinations of `models` ("1.5B", "7B") and `datasets` ("aime24", "aime25") and pass the correct, paper-matched hyperparameters for each run.
+These scripts automatically loop through all combinations of `models` and `datasets` and pass the correct, paper-matched hyperparameters for each run.
 
 ```bash
 bash scripts/run_all_dts.sh # DTS
@@ -183,27 +203,31 @@ python decoding_tree_sketching/run_experiments.py [mode] --model_name [model] --
 
 **Argument Explanations:**
 
-  * `[mode]`: (Required) `dts` or `standard`.
-  * `--model_name`: The model key from `configs/config.yaml` (e.g., `1.5B`).
-  * `--dataset_name`: The dataset key from `configs/config.yaml` (e.g., `aime24`).
-  * `[OPTIONS]`:
-    * `-e`, `--entropy_threshold`: **[DTS only]** The entropy (uncertainty) threshold $\tau$ to trigger branching.
-    * `-k`, `--branch_top_k`: **[DTS only]** The number of new branches (top-K tokens) to create when entropy exceeds the threshold.
-    * `-a`, `--max_active_hyps`: **[DTS only]** The maximum number of active hypotheses to maintain during decoding.
-    * `-m`, `--max_new_tokens`: Maximum tokens that can be generated.
-    * `-s`, `--seed`: Initial random seed.
-    * `-n`, `--num_trials`: Number of trials for the repeated experiment.
-    * `-t`, `--temperature`: Sampling temperature.
+* `[mode]`: `dts` or `standard`.
+* `--model_name`: The model key from `configs/config.yaml` (e.g., `1.5B`).
+* `--dataset_name`: The dataset key from `configs/config.yaml` (e.g., `aime24`).
+* `[OPTIONS]`:
+  * `-e`, `--entropy_threshold`: **[DTS only]** The entropy threshold to trigger branching.
+  * `-v`, `--varentropy_threshold`: **[DTS only]** The varentropy threshold to trigger branching.
+  * `-k`, `--branch_top_k`: **[DTS only]** The number of new branches (top-K tokens) to create when entropy exceeds the threshold.
+  * `-a`, `--max_active_hyps`: **[DTS only]** The maximum number of active hypotheses (branches) to maintain during decoding.
+  * `--num_traces`: **[DTS-Stable]** The voting budget $B$ (number of completed trajectories to collect before voting). Set to `1` for DTS-Greedy.
+  * `-m`, `--max_new_tokens`: Maximum tokens that can be generated.
+  * `-s`, `--seed`: Initial random seed.
+  * `-n`, `--num_trials`: Number of trials for the repeated experiment.
+  * `-t`, `--temperature`: Sampling temperature.
 
-**Example (DTS on 7B model for AIME24):**
+**Example (DTS-Stable on 7B model for AIME24):**
 
 ```bash
-decoding_tree_sketching/run_experiment.py dts \
+python decoding_tree_sketching/run_experiment.py dts \
     --model_name "7B" \
     --dataset_name "aime24" \
     -e 2.5 \
+    -v 1.5 \
     -k 3 \
     -a 12 \
+    --num_traces 8 \
     -m 32768 \
     -t 0.6 \
     -s 0 \
@@ -212,7 +236,7 @@ decoding_tree_sketching/run_experiment.py dts \
 
 #### 4\. Extending to Other Models or Datasets
 
-This codebase is configured to run the AIME24/AIME25 datasets with the DeepSeek-R1-Distill-Qwen models. To add new models or datasets, you will need to modify the following files:
+To add new models or datasets, you will need to modify the following files:
 
 1.  **`configs/config.yaml`**:
 
@@ -224,20 +248,26 @@ This codebase is configured to run the AIME24/AIME25 datasets with the DeepSeek-
       * The evaluation logic (e.g., `extract_answer_qwq`) is specific to the `\boxed{}` format. You will need to update the evaluation loop to use the correct answer extraction logic for your new dataset.
 
 
-## 🔍 How does DTS Work?
+## 🔍 How DTS Works
 
-<!-- This project introduces **DTS (Decoding Tree Sketching)**, a **training-free, model-agnostic decoding framework** designed to mitigate **overthinking** in Large Reasoning Models (LRMs). -->
+DTS sketches a structured reasoning tree by selectively branching at critical decision points and applies early termination to prioritize the most reliable reasoning paths. The design of DTS is driven by two critical findings regarding LRM behavior:
 
-DTS selectively branches at high-uncertainty tokens and applies early stopping to identify the **most information-dense and concise reasoning path** to balance efficiency and correctness. The design of DTS is driven by two critical, empirical findings regarding LRM behavior:
+- **Length-Accuracy Anti-correlation**: Empirical analysis reveals that shorter reasoning trajectories* consistently achieve higher accuracy. This phenomenon is theoretically grounded in RL post-training objectives, which implicitly favor concise correct reasoning over long, rambling chains.
 
-- There is a clear **anti-correlation** between reasoning length and accuracy.
+- **Selective Branching at "Decision Tokens"**: Instead of branching at generic high-uncertainty points, DTS identifies specific "Decision Tokens" where the model wavers between distinct reasoning directions. These tokens are mathematically characterized by high varentropy (indicating semantic competition) and low entropy (indicating focused confidence on a few paths).
 
-- The variance in generated output is predominantly determined by **high-uncertainty (high-entropy) tokens**.
+DTS offers two decoding strategies to balance efficiency and stability:
 
-The figure below illustrates both this anti-correlation (a) and the resulting DTS framework (b), which selectively branches at high-entropy tokens to find the shortest, most accurate path:
-<p align="center">
-  <img src="assets/fig1.png" width="850">
-</p>
+* **DTS-Greedy:** It follows a greedy stopping rule, terminating immediately once the first candidate trajectory completes. This strategy leverages the insight that shorter reasoning paths are often more reliable.
+* **DTS-Stable:** Enhances robustness by collecting a voting budget of the earliest completed trajectories and employing majority voting to select the final answer. This approach maintains the preference for concise reasoning while reducing sensitivity to stochastic variations.
+  
+The figure below illustrates **(a) Generation of the decoding tree by DTS.** Starting from the input prompt, DTS first follows standard auto-regressive decoding, producing a single branch (**blue**). At decision tokens, DTS generates new branches (**green** and **purple**) by selecting top- candidate tokens. Each branch expands in parallel across its own token space. **(b) DTS trajectory selection via early termination.** All branches share prefix computation up to their branching points. DTS prioritizes the earliest completed branches that reach the end-of-sequence token (**purple**).
+
+<div align="center">
+  <img src="./assets/dts-a-new2.png" alt="Alt text" width="40%">
+  &nbsp; &nbsp; &nbsp; &nbsp; 
+  <img src="./assets/DTS-b-final.png" alt="Alt text" width="36%">
+</div>
 
 ## 🫡 Acknowledgement
 
