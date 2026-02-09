@@ -126,3 +126,68 @@ def is_correct(model_completion, gt_example):
     gt_answer = extract_answer_gt(gt_example["answer"])
     assert gt_answer != INVALID_ANS
     return extract_answer_gt(model_completion) == gt_answer
+
+def fmt_float(x: float) -> str:
+    s = f"{x:.6f}".rstrip("0").rstrip(".")
+    return s.replace(".", "p") if s else "0"
+
+def extract_livebench_answer(text: str) -> Optional[str]:
+    if not text:
+        return None
+    
+    solution_matches = re.findall(r"<solution>(.*?)</solution>", text, re.DOTALL | re.IGNORECASE)
+    if solution_matches:
+        return solution_matches[-1].strip()
+
+    boxed_matches = re.findall(r"\\boxed\{(.*?)\}", text)
+    if boxed_matches:
+        return boxed_matches[-1].strip()
+
+    bold_matches = re.findall(r"\*{2,}(.*?)\*{2,}", text, re.DOTALL)
+    if bold_matches:
+        return bold_matches[-1].strip().strip('*')
+
+    lines = text.strip().split('\n')
+    for line in reversed(lines):
+        ans_match = re.search(r"(?:^|\.\s*|The\s+)(?:Answer|answer)\s*(?:is|:)\s*(.*?)(?:\.|$)", line, re.IGNORECASE)
+        if ans_match:
+            candidate = ans_match.group(1).strip()
+            if len(candidate) < 100:
+                return candidate
+    try:
+        num_ans = extract_answer_llm(text)
+        if num_ans: 
+            return num_ans
+    except:
+        pass
+    
+    return None
+
+def check_livebench_match(model_ans, gt_ans):
+    def normalize_list(s):
+        if s is None: return []
+        s = str(s).replace("<solution>", "").replace("</solution>", "")
+        s = s.replace("\n", ",")
+        items = [item.strip() for item in s.split(",") if item.strip()]
+        return [i.lower() for i in items]
+
+    normalized_model = normalize_list(model_ans)
+    normalized_gt = normalize_list(gt_ans)
+    return normalized_model == normalized_gt
+    
+
+def extract_gpqa_answer(text: str) -> Optional[str]:
+    if not text:
+        return None
+    
+    lines = text.strip().split('\n')
+    for line in reversed(lines):
+        match = re.search(ANSWER_PATTERN_MULTICHOICE, line)
+        if match:
+            return match.group(1).upper()
+            
+    all_matches = re.findall(r"\b([A-D])\b", text)
+    if all_matches:
+        return all_matches[-1].upper()
+        
+    return None
