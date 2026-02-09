@@ -36,7 +36,7 @@
 
 <div align="center">
   <img src="./assets/radar.png" alt="Alt text" width="40%">
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
   <img src="./assets/scale.png" alt="Alt text" width="40%">
 </div>
 
