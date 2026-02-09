@@ -1,7 +1,7 @@
 set -e
 
-MODELS=("1.5B" "7B")
-DATASETS=("aime24" "aime25")
+MODELS=("1.5B" "7B" "qwen30p6" "phi-4-mini-reasoning")
+DATASETS=("aime24" "aime25" "gpqa_diamond" "livebench_reasoning")
 
 TRIALS=5
 SEED=0
@@ -12,12 +12,15 @@ echo "========================================="
 
 for model in "${MODELS[@]}"; do
     for dataset in "${DATASETS[@]}"; do
-
         local_temp=""
         if [ "$dataset" == "aime24" ]; then
             local_temp=0.6
         elif [ "$dataset" == "aime25" ]; then
             local_temp=0.5
+        elif [ "$dataset" == "gpqa_diamond" ]; then
+            local_temp=0.6
+        elif [ "$dataset" == "livebench_reasoning" ]; then
+      local_temp=0.6
         else
             echo "ERROR: Unknown dataset $dataset. Exiting."
             exit 1
