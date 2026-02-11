@@ -7,7 +7,7 @@ name = "dts"
 version = "0.1.0"
 description = "a model-agnostic decoding framework for efficient reasoning"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "==3.10.*"
 
 license = { file = "LICENSE" }
 classifiers = [
@@ -15,15 +15,16 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
-    "torch==2.6.0",
-    "transformers==4.54.0",
-    "numpy",
-    "datasets",
-    "scikit-learn",
-    "tqdm",
-    "tiktoken",
-    "accelerate",
-    "pyyaml",
+  "accelerate==1.12.0",
+  "datasets==4.4.1",
+  "numpy==2.2.6",
+  "PyYAML==6.0.3",
+  "scikit-learn==1.7.2",
+  "tiktoken==0.12.0",
+  "torch==2.6.0",
+  "torchaudio==2.9.0",
+  "tqdm==4.67.1",
+  "transformers==4.54.0",
 ]
 
 [tool.setuptools]
