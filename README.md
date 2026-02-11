@@ -3,7 +3,7 @@
   <img src="./assets/dts_logo-Photoroom.png" height="80" style="vertical-align: middle;">
   Decoding Tree Sketching (DTS)
 </h1>
-<h3><em>Enhancing Large Reasoning Models via Structured Exploration</em></h3>
+<h3><em>Enhancing Large Reasoning Models via Structured Exploration and Shortest Trajectory Selection</em></h3>
 <p align="center" style="margin-bottom: 0px;">
     <a href="https://arxiv.org/abs/2511.00640"><img src="https://img.shields.io/badge/Paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white" height="24"></a><a href="#"><img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white"height="24"></a><a href="https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb"><img src="https://img.shields.io/badge/Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=white"height="24"></a><a href="#"><img src="https://img.shields.io/badge/HuggingFace-FEDA1A?style=for-the-badge&logo=huggingface&logoColor=000000"height="24"></a><a href="#"><img src="https://img.shields.io/badge/-000000?style=for-the-badge&logo=x&logoColor=white" height="24"></a>
 </p>
