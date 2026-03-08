@@ -47,7 +47,7 @@ Run DTS on DeepSeek-R1-Distill-Qwen-1.5B with Colab [![Open In Colab](https://co
 
 ## 🚀 Clone and Use DTS
 DTS is a **plug-and-play** module designed for reasoning models on Hugging Face.
-Simply clone this repository to instantly enhance your model’s reasoning capabilities!
+Simply clone this repository to instantly enhance your model’s reasoning capabilities! If you wish to access the vLLM implementation, please visit this [repo](https://github.com/meierteng/DTS-vLLM/tree/main).
 
 #### 1\. Environment Setup
 
