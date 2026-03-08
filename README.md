@@ -19,6 +19,7 @@
 </div>
 
 ## 🎉 Updates
+- **[03/08/2026]** **vLLM Implementation:** We have a working vLLM implementation of DTS. Check it out [here](https://github.com/meierteng/DTS-vLLM/tree/main).
 - **[02/09/2026]** **Codebase Update:** We have updated the codebase to match the latest version.
 - **[02/04/2026]** **Paper Update:** We have uploaded the latest version of our paper to arXiv. Check it out [here](https://arxiv.org/abs/2511.00640).
 - **[11/03/2025]** 📣 Released DTS on Colab! [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZichengXu/Decoding-Tree-Sketching/blob/main/notebooks/example_DeepSeek_R1_Distill_Qwen_1_5B.ipynb)
