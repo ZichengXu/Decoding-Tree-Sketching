@@ -18,6 +18,7 @@ echo ""
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate dts
 cd ~/Decoding-Tree-Sketching/vllm
+mkdir -p logs
 
 # Greedy mode: 1 trace per question, 5 seeds
 python run_benchmark.py dts \

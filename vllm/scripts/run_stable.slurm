@@ -18,6 +18,7 @@ echo ""
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate dts
 cd ~/Decoding-Tree-Sketching/vllm
+mkdir -p logs
 
 # Stable mode: 8 traces per question with majority vote, 5 seeds
 python run_benchmark.py dts \
