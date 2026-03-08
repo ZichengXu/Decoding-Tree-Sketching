@@ -248,6 +248,13 @@ To add new models or datasets, you will need to modify the following files:
       * The evaluation logic (e.g., `extract_answer_qwq`) is specific to the `\boxed{}` format. You will need to update the evaluation loop to use the correct answer extraction logic for your new dataset.
 
 
+## 🖥️ vLLM Backend
+
+A vLLM-based implementation of DTS is available in the [`vllm/`](./vllm/) directory, optimized for multi-GPU cluster environments with a two-phase architecture (token-by-token branching + batched completion).
+
+See [`vllm/README.md`](./vllm/README.md) for installation, usage, and benchmark results.
+
+
 ## 🔍 How DTS Works
 
 DTS sketches a structured reasoning tree by selectively branching at critical decision points and applies early termination to prioritize the most reliable reasoning paths. The design of DTS is driven by two critical findings regarding LRM behavior:
