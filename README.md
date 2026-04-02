@@ -284,8 +284,8 @@ If you find DTS helpful, please cite the paper and star this repo, thanks!
 
 ```bibtex
 @article{xu2025dts,
-  title={DTS: Enhancing Large Reasoning Models via Decoding Tree Sketching},
-  author={Xu, Zicheng and Wang, Guanchu and Chuang, Yu-Neng and Zheng, Guangyao and Szalay, Alexander S and Liu, Zirui and Braverman, Vladimir},
+  title={Dts: Enhancing large reasoning models via decoding tree sketching},
+  author={Xu, Zicheng and Lou, Xiuyi and Wang, Guanchu and Chuang, Yu-Neng and Luo, Feng and Zheng, Guangyao and Szalay, Alexander S and Liu, Zirui and Braverman, Vladimir},
   journal={arXiv preprint arXiv:2511.00640},
   year={2025}
 }
