@@ -19,6 +19,7 @@
 </div>
 
 ## 🎉 Updates
+- **[04/30/2026]** 📣 We are proud to announce that our DTS paper has been accepted by ICML 2026!
 - **[03/08/2026]** **vLLM Implementation:** We have a working vLLM implementation of DTS. Check it out [here](https://github.com/meierteng/DTS-vLLM/tree/main).
 - **[02/09/2026]** **Codebase Update:** We have updated the codebase to match the latest version.
 - **[02/04/2026]** **Paper Update:** We have uploaded the latest version of our paper to arXiv. Check it out [here](https://arxiv.org/abs/2511.00640).
