@@ -1,6 +1,7 @@
 import json
 import os
 import re
+from typing import Optional
 
 def read_jsonl(path: str):
     with open(path) as fh:
